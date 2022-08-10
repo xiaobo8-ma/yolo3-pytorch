@@ -38,6 +38,8 @@ from utils.utils_fit import fit_one_epoch
    如果只是训练了几个Step是不会保存的，Epoch和Step的概念要捋清楚一下。
 '''
 if __name__ == "__main__":
+    cbma=True
+    spp=True
     #---------------------------------#
     #   Cuda    是否使用Cuda
     #           没有GPU可以设置成False
