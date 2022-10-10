@@ -38,7 +38,7 @@ from utils.utils_fit import fit_one_epoch
    如果只是训练了几个Step是不会保存的，Epoch和Step的概念要捋清楚一下。
 '''
 if __name__ == "__main__":
-    cbma=True
+    cb=True
     spp=True
     #---------------------------------#
     #   Cuda    是否使用Cuda
@@ -249,7 +249,7 @@ if __name__ == "__main__":
     #------------------------------------------------------#
     #   创建yolo模型
     #------------------------------------------------------#
-    model = YoloBody(anchors_mask, num_classes, pretrained=pretrained,cmba=cmba,spp=spp)
+    model = YoloBody(anchors_mask, num_classes, pretrained=pretrained,cb=cb,spp=spp)
     if not pretrained:
         weights_init(model)
     if model_path != '':
