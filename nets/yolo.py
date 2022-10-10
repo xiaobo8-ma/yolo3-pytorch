@@ -54,7 +54,7 @@ def make_three_conve(filter_list, in_filter):
 
 
 class YoloBody(nn.Module):
-    def __init__(self, anchors_mask, num_classes, pretrained=False, cbma=False, spp=False):
+    def __init__(self, anchors_mask, num_classes, pretrained=False, cb=False, spp=False):
         super(YoloBody, self).__init__()
         # ---------------------------------------------------#
         #   生成darknet53的主干模型
