@@ -195,13 +195,35 @@ class YOLO(object):
             left    = max(0, np.floor(left).astype('int32'))
             bottom  = min(image.size[1], np.floor(bottom).astype('int32'))
             right   = min(image.size[0], np.floor(right).astype('int32'))
+            #------------新增1----------------#
+            middle_x = int(np.floor((left + right) / 2))
+            middle_y = int(np.floor((top + bottom) / 2))
+            # label1 = '{} {}'.format(middle_x,middle_y)
+            
+            #----------------------------#
 
-            label = '{} {:.2f}'.format(predicted_class, score)
+
+            label = '{} {:.2f} cppc({},{})'.format(predicted_class, score,middle_x,middle_y)
+            
+
+#             label = '{} {:.2f}'.format(predicted_class, score)
             draw = ImageDraw.Draw(image)
             label_size = draw.textsize(label, font)
             label = label.encode('utf-8')
             print(label, top, left, bottom, right)
+            if i==0:
+                with open("test.txt", mode='w+', encoding='utf-8') as ff:
+                    pass
+
+
+            with open("test.txt", mode='a+', encoding='utf-8') as ff:
+                ff.write('{} {:.2f} cppc({},{}) {} {} {} {}\n'.format(predicted_class, score,middle_x,middle_y,top,left,bottom,right))
+        
             
+          
+          
+          
+          
             if top - label_size[1] >= 0:
                 text_origin = np.array([left, top - label_size[1]])
             else:
